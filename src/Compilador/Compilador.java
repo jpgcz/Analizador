@@ -82,7 +82,7 @@ public class Compilador {
         {211, 210, 206, -35}, // F::=, Constante E
         {213, 218}, // Or::=And G
         {213, 218, -22}, // G::=|| And G
-        {403,-39, 216, 212, 215, 402, -38}, // Arr::=[ H Or H2 ]
+        {-39, 216, 212, 215, -38}, // Arr::=[ H Or H2 ]           {403,-39, 216, 212, 215, 402, -38}
         {-12},// H::=-
         {217, 212, 215, -51},// H2::=: H Or I
         {212, 215, -51}, // I::=: H Or 
@@ -703,13 +703,13 @@ public class Compilador {
                             }
                             pilaproducciones.pop();
                         }
-                        if (pilaproducciones.peek() == 403) {
-                            if(zDeclaracion){
-                                guardarContadoresAmbito();
-                                ambitos.pop();
-                            }
-                            pilaproducciones.pop();
-                        }
+//                        if (pilaproducciones.peek() == 403) {
+//                            if(zDeclaracion){
+//                                guardarContadoresAmbito();
+//                                ambitos.pop();
+//                            }
+//                            pilaproducciones.pop();
+//                        }
                     }
                     if (pilaproducciones.peek() >= 200 && pilaproducciones.peek() < 251 && tokeen2.getFirst().est < 0) {
 
@@ -957,7 +957,7 @@ public class Compilador {
                         ambTemp = ambitos.peek();
                     }
                     if (token.est == -38) {
-                        ambTemp = ambitos.peek(); //quitar
+                        //ambTemp = ambitos.peek(); //quitar
                         tipoDeclaracion = 10;
                     }
                 } else if (tipoDeclaracion > 3 && tipoDeclaracion < 7) { //Declarar rangos
@@ -1094,7 +1094,7 @@ public class Compilador {
             if (isConstEnt(token)) {
                 parametros.add(token);
             } else if (token.est == -39) {
-                TablaSimbolos.registrarArr(idTemp.valor.trim(), ambTemp + ""); //ambitos.peek() ambTemp
+                TablaSimbolos.registrarArr(idTemp.valor.trim(), ambitos.peek() + ""); //ambitos.peek() ambTemp
                 tipoDeclaracion = 0;
             }
         }
