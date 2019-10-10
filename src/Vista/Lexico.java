@@ -232,7 +232,7 @@ public class Lexico extends javax.swing.JFrame {
         tablatokens = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaerrores = new javax.swing.JTable();
-        Generar = new javax.swing.JButton();
+        btn_tablaSemantica1 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTablecontadoresSin = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -306,13 +306,14 @@ public class Lexico extends javax.swing.JFrame {
     jLabel25 = new javax.swing.JLabel();
     jLabel26 = new javax.swing.JLabel();
     jLabel27 = new javax.swing.JLabel();
+    Generar1 = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setAutoRequestFocus(false);
     setBackground(new java.awt.Color(0, 0, 153));
     setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-    setMinimumSize(new java.awt.Dimension(1500, 920));
-    setPreferredSize(new java.awt.Dimension(1400, 820));
+    setMinimumSize(new java.awt.Dimension(1600, 920));
+    setPreferredSize(new java.awt.Dimension(1800, 820));
 
     jPanel1.setBackground(new java.awt.Color(20, 173, 228));
     jPanel1.setMinimumSize(new java.awt.Dimension(1400, 669));
@@ -341,7 +342,7 @@ public class Lexico extends javax.swing.JFrame {
             btnsubirActionPerformed(evt);
         }
     });
-    jPanel1.add(btnsubir, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 150, -1));
+    jPanel1.add(btnsubir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 150, -1));
 
     btnanalizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
     btnanalizar.setText("Compilar");
@@ -350,7 +351,7 @@ public class Lexico extends javax.swing.JFrame {
             btnanalizarActionPerformed(evt);
         }
     });
-    jPanel1.add(btnanalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 110, -1));
+    jPanel1.add(btnanalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 110, -1));
 
     jScrollPane3.setBorder(null);
 
@@ -404,14 +405,14 @@ public class Lexico extends javax.swing.JFrame {
 
     jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 590, 260));
 
-    Generar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-    Generar.setText("EXCEL");
-    Generar.addActionListener(new java.awt.event.ActionListener() {
+    btn_tablaSemantica1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+    btn_tablaSemantica1.setText("Tabla Semantica");
+    btn_tablaSemantica1.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            GenerarActionPerformed(evt);
+            btn_tablaSemantica1ActionPerformed(evt);
         }
     });
-    jPanel1.add(Generar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 110, -1));
+    jPanel1.add(btn_tablaSemantica1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 150, -1));
 
     jTablecontadoresSin.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
@@ -809,11 +810,22 @@ public class Lexico extends javax.swing.JFrame {
     jLabel27.setText("TOKENS");
     jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 300, -1, -1));
 
+    Generar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+    Generar1.setText("EXCEL");
+    Generar1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            Generar1ActionPerformed(evt);
+        }
+    });
+    jPanel1.add(Generar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 110, -1));
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1482, Short.MAX_VALUE)
+        .addGroup(layout.createSequentialGroup()
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1801, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 0, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1058,7 +1070,13 @@ public class Lexico extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnsubirActionPerformed
 
-    private void GenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarActionPerformed
+    private void btn_tablaSemantica1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tablaSemantica1ActionPerformed
+        VistaSem1 vs1 = new VistaSem1(this,false);
+        vs1.llenarTabla(compi.contaSem1);
+        vs1.setVisible(true);
+    }//GEN-LAST:event_btn_tablaSemantica1ActionPerformed
+
+    private void Generar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generar1ActionPerformed
         XSSFWorkbook workbook;
         workbook = new XSSFWorkbook();
         // <editor-fold defaultstate="collapsed" desc="TOKENS">
@@ -1405,137 +1423,158 @@ public class Lexico extends javax.swing.JFrame {
         XSSFSheet hoja6 = workbook.createSheet("CONTADORES AMBITO");
         try {
             XSSFRow fila = hoja6.createRow(0);
-            fila.createCell(0).setCellValue("Ambito");
-            fila.createCell(1).setCellValue("Decimal");
-            fila.createCell(2).setCellValue("Binario");
-            fila.createCell(3).setCellValue("Octal");
-            fila.createCell(4).setCellValue("Hexadecimal");
-            fila.createCell(5).setCellValue("Flotante");
-            fila.createCell(6).setCellValue("Cadena");
-            fila.createCell(7).setCellValue("Caracter");
-            fila.createCell(8).setCellValue("Compleja");
-            fila.createCell(9).setCellValue("Boolean");
-            fila.createCell(10).setCellValue("None");
-            fila.createCell(11).setCellValue("Arreglo");
-            fila.createCell(12).setCellValue("Tuplas");
-            fila.createCell(13).setCellValue("Lista");
-            fila.createCell(14).setCellValue("Rango");
-            fila.createCell(15).setCellValue("Conjuntos");
-            fila.createCell(16).setCellValue("Diccionarios");
-            fila.createCell(17).setCellValue("total/Amb");
+            fila.createCell(0).setCellValue("Ambito"); fila.createCell(1).setCellValue("Decimal");
+            fila.createCell(2).setCellValue("Binario"); fila.createCell(3).setCellValue("Octal");
+            fila.createCell(4).setCellValue("Hexadecimal"); fila.createCell(5).setCellValue("Flotante");
+            fila.createCell(6).setCellValue("Cadena"); fila.createCell(7).setCellValue("Caracter");
+            fila.createCell(8).setCellValue("Compleja"); fila.createCell(9).setCellValue("Boolean");
+            fila.createCell(10).setCellValue("None"); fila.createCell(11).setCellValue("Arreglo");
+            fila.createCell(12).setCellValue("Tuplas");fila.createCell(13).setCellValue("Lista");
+            fila.createCell(14).setCellValue("Rango");fila.createCell(15).setCellValue("Conjuntos");
+            fila.createCell(16).setCellValue("Diccionarios"); fila.createCell(17).setCellValue("total/Amb");
             XSSFRow filas;
             int totalAmbitos = 0;
             for (int j = 0; j < compi.contadoresAmbito.size(); j++) {
-                //System.out.println(compi.contadoresAmbito.get(j).toString());
-                fila = hoja6.createRow(j + 1);
-                fila.createCell(0).setCellValue(compi.contadoresAmbito.get(j).ambito);
-                fila.createCell(1).setCellValue(compi.contadoresAmbito.get(j).decimal);
-                totalAmbitos += compi.contadoresAmbito.get(j).decimal;
-                fila.createCell(2).setCellValue(compi.contadoresAmbito.get(j).binario);
-                totalAmbitos += compi.contadoresAmbito.get(j).binario;
-                fila.createCell(3).setCellValue(compi.contadoresAmbito.get(j).octal);
-                totalAmbitos += compi.contadoresAmbito.get(j).octal;
-                fila.createCell(4).setCellValue(compi.contadoresAmbito.get(j).hexadecimal);
-                totalAmbitos += compi.contadoresAmbito.get(j).hexadecimal;
-                fila.createCell(5).setCellValue(compi.contadoresAmbito.get(j).flotante);
-                totalAmbitos += compi.contadoresAmbito.get(j).flotante;
-                fila.createCell(6).setCellValue(compi.contadoresAmbito.get(j).cadena);
-                totalAmbitos += compi.contadoresAmbito.get(j).cadena;
-                fila.createCell(7).setCellValue(compi.contadoresAmbito.get(j).caracter);
-                totalAmbitos += compi.contadoresAmbito.get(j).caracter;
-                fila.createCell(8).setCellValue(compi.contadoresAmbito.get(j).compleja);
-                totalAmbitos += compi.contadoresAmbito.get(j).compleja;
-                fila.createCell(9).setCellValue(compi.contadoresAmbito.get(j).booleana);
-                totalAmbitos += compi.contadoresAmbito.get(j).booleana;
-                fila.createCell(10).setCellValue(compi.contadoresAmbito.get(j).none);
-                totalAmbitos += compi.contadoresAmbito.get(j).none;
-                fila.createCell(11).setCellValue(compi.contadoresAmbito.get(j).arreglo);
-                totalAmbitos += compi.contadoresAmbito.get(j).arreglo;
-                fila.createCell(12).setCellValue(compi.contadoresAmbito.get(j).tuplas);
-                totalAmbitos += compi.contadoresAmbito.get(j).tuplas;
-                fila.createCell(13).setCellValue(compi.contadoresAmbito.get(j).lista);
-                totalAmbitos += compi.contadoresAmbito.get(j).lista;
-                fila.createCell(14).setCellValue(compi.contadoresAmbito.get(j).rango);
-                totalAmbitos += compi.contadoresAmbito.get(j).rango;
-                fila.createCell(15).setCellValue(compi.contadoresAmbito.get(j).conjunto);
-                totalAmbitos += compi.contadoresAmbito.get(j).conjunto;
-                fila.createCell(16).setCellValue(compi.contadoresAmbito.get(j).diccionarios);
-                totalAmbitos += compi.contadoresAmbito.get(j).diccionarios;
+                fila = hoja6.createRow(j+1);
+                fila.createCell(0).setCellValue(compi.contadoresAmbito.get(j).ambito); 
+                fila.createCell(1).setCellValue(compi.contadoresAmbito.get(j).decimal); totalAmbitos += compi.contadoresAmbito.get(j).decimal;
+                fila.createCell(2).setCellValue(compi.contadoresAmbito.get(j).binario);totalAmbitos += compi.contadoresAmbito.get(j).binario;
+                fila.createCell(3).setCellValue(compi.contadoresAmbito.get(j).octal); totalAmbitos += compi.contadoresAmbito.get(j).octal;
+                fila.createCell(4).setCellValue(compi.contadoresAmbito.get(j).hexadecimal); totalAmbitos += compi.contadoresAmbito.get(j).hexadecimal;
+                fila.createCell(5).setCellValue(compi.contadoresAmbito.get(j).flotante);totalAmbitos += compi.contadoresAmbito.get(j).flotante;
+                fila.createCell(6).setCellValue(compi.contadoresAmbito.get(j).cadena);totalAmbitos += compi.contadoresAmbito.get(j).cadena;
+                fila.createCell(7).setCellValue(compi.contadoresAmbito.get(j).caracter);totalAmbitos += compi.contadoresAmbito.get(j).caracter;
+                fila.createCell(8).setCellValue(compi.contadoresAmbito.get(j).compleja);totalAmbitos += compi.contadoresAmbito.get(j).compleja;
+                fila.createCell(9).setCellValue(compi.contadoresAmbito.get(j).booleana);totalAmbitos += compi.contadoresAmbito.get(j).booleana;
+                fila.createCell(10).setCellValue(compi.contadoresAmbito.get(j).none);totalAmbitos += compi.contadoresAmbito.get(j).none;
+                fila.createCell(11).setCellValue(compi.contadoresAmbito.get(j).arreglo);totalAmbitos += compi.contadoresAmbito.get(j).arreglo;
+                fila.createCell(12).setCellValue(compi.contadoresAmbito.get(j).tuplas);totalAmbitos += compi.contadoresAmbito.get(j).tuplas;
+                fila.createCell(13).setCellValue(compi.contadoresAmbito.get(j).lista);totalAmbitos += compi.contadoresAmbito.get(j).lista;
+                fila.createCell(14).setCellValue(compi.contadoresAmbito.get(j).rango);totalAmbitos += compi.contadoresAmbito.get(j).rango;
+                fila.createCell(15).setCellValue(compi.contadoresAmbito.get(j).conjunto);totalAmbitos += compi.contadoresAmbito.get(j).conjunto;
+                fila.createCell(16).setCellValue(compi.contadoresAmbito.get(j).diccionarios);totalAmbitos += compi.contadoresAmbito.get(j).diccionarios;
                 fila.createCell(17).setCellValue(totalAmbitos);
                 totalAmbitos = 0;
             }
-            fila = hoja6.createRow(compi.contadoresAmbito.size() + 1);
+            fila = hoja6.createRow(compi.contadoresAmbito.size()+1);
             int totalGeneral = 0;
-
+            
             int decimales = TablaSimbolos.contarTiposTodos("Decimal");
-            totalGeneral += decimales;
+            totalGeneral+=decimales;
             fila.createCell(1).setCellValue(decimales);
-
+            
             int binareos = TablaSimbolos.contarTiposTodos("Binareo");
-            totalGeneral += binareos;
+            totalGeneral+=binareos;
             fila.createCell(2).setCellValue(binareos);
-
+            
             int octales = TablaSimbolos.contarTiposTodos("Octal");
-            totalGeneral += octales;
+            totalGeneral+=octales;
             fila.createCell(3).setCellValue(octales);
-
+            
             int hexadecimales = TablaSimbolos.contarTiposTodos("Hexadecimal");
-            totalGeneral += hexadecimales;
+            totalGeneral+=hexadecimales;
             fila.createCell(4).setCellValue(hexadecimales);
-
+            
             int flotantes = TablaSimbolos.contarTiposTodos("Flotante");
-            totalGeneral += flotantes;
+            totalGeneral+=flotantes;
             fila.createCell(5).setCellValue(flotantes);
-
+            
             int cadenas = TablaSimbolos.contarTiposTodos("Cadena");
-            totalGeneral += cadenas;
+            totalGeneral+=cadenas;
             fila.createCell(6).setCellValue(cadenas);
-
+            
             int caracteres = TablaSimbolos.contarTiposTodos("Caracter");
-            totalGeneral += caracteres;
+            totalGeneral+=caracteres;
             fila.createCell(7).setCellValue(caracteres);
-
+            
             int complejos = TablaSimbolos.contarTiposTodos("Complejo");
-            totalGeneral += complejos;
+            totalGeneral+=complejos;
             fila.createCell(8).setCellValue(complejos);
-
+            
             int booleanos = TablaSimbolos.contarTiposTodos("Booleano");
-            totalGeneral += booleanos;
+            totalGeneral+=booleanos;
             fila.createCell(9).setCellValue(booleanos);
-
+            
             int nones = TablaSimbolos.contarTiposTodos("None");
             fila.createCell(10).setCellValue(nones);
-            totalGeneral += nones;
-
+            totalGeneral+=nones;
+            
             int arreglos = TablaSimbolos.contarClasesTodos("Arreglo");
-            totalGeneral += arreglos;
+            totalGeneral+=arreglos;
             fila.createCell(11).setCellValue(arreglos);
-
+            
             int tuplas = TablaSimbolos.contarClasesTodos("Tupla");
-            totalGeneral += tuplas;
+            totalGeneral+=tuplas;
             fila.createCell(12).setCellValue(tuplas);
-
+            
             int listas = TablaSimbolos.contarClasesTodos("Lista");
-            totalGeneral += listas;
+            totalGeneral+=listas;
             fila.createCell(13).setCellValue(listas);
-
+            
             int rangos = TablaSimbolos.contarClasesTodos("Rango");
-            totalGeneral += rangos;
+            totalGeneral+=rangos;
             fila.createCell(14).setCellValue(rangos);
-
+            
             int conjuntos = TablaSimbolos.contarClasesTodos("Conjunto");
-            totalGeneral += conjuntos;
+            totalGeneral+=conjuntos;
             fila.createCell(15).setCellValue(conjuntos);
-
+            
             int diccionarios = TablaSimbolos.contarClasesTodos("Diccionario");
-            totalGeneral += diccionarios;
+            totalGeneral+=diccionarios;
             fila.createCell(16).setCellValue(diccionarios);
-
+            
             fila.createCell(17).setCellValue(totalGeneral);
+            
+//            try {
+//                workbook.write(new FileOutputStream(new File("C:\\Users\\samu_\\Desktop\\9no Semestre\\Compi 2\\Excel's Generados\\ResultadosCompi.xlsx")));
+//                Desktop.getDesktop().open(new File("C:\\Users\\samu_\\Desktop\\9no Semestre\\Compi 2\\Excel's Generados\\ResultadosCompi.xlsx"));
+//            } catch (FileNotFoundException ex) {
+//                Logger.getLogger(Lexico.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
 
+        }
+        // </editor-fold>
+        // <editor-fold defaultstate="collapsed" desc="SEMANTICA 1 CONTADORES">
+        XSSFSheet hoja8 = workbook.createSheet("SEMANTICA 1");
+        try {
+            XSSFRow fila = hoja8.createRow(0);
+            fila.createCell(0).setCellValue("Linea");
+            fila.createCell(1).setCellValue("TD"); fila.createCell(2).setCellValue("TDB");
+            fila.createCell(3).setCellValue("TDO"); fila.createCell(4).setCellValue("TDH");
+            fila.createCell(5).setCellValue("TF"); fila.createCell(6).setCellValue("TS");
+            fila.createCell(7).setCellValue("TCH"); fila.createCell(8).setCellValue("TB");
+            fila.createCell(9).setCellValue("TN"); fila.createCell(10).setCellValue("TL");
+            fila.createCell(11).setCellValue("TR"); fila.createCell(12).setCellValue("TAR");
+            fila.createCell(13).setCellValue("TCON");fila.createCell(14).setCellValue("TDIC");
+            fila.createCell(15).setCellValue("TV");fila.createCell(16).setCellValue("Asignación");
+            XSSFRow filas;
+            int totalAmbitos = 0;
+            for (int j = 0; j < compi.contaSem1.size(); j++) {
+                fila = hoja8.createRow(j+1);
+                fila.createCell(0).setCellValue(compi.contaSem1.get(j).numLinea);
+                fila.createCell(1).setCellValue(compi.contaSem1.get(j).tDec); 
+                fila.createCell(2).setCellValue(compi.contaSem1.get(j).tBin);
+                fila.createCell(3).setCellValue(compi.contaSem1.get(j).tOct);
+                fila.createCell(4).setCellValue(compi.contaSem1.get(j).tHex);
+                fila.createCell(5).setCellValue(compi.contaSem1.get(j).tFlot);
+                fila.createCell(6).setCellValue(compi.contaSem1.get(j).tCaden);
+                fila.createCell(7).setCellValue(compi.contaSem1.get(j).tCarac);
+                fila.createCell(8).setCellValue(compi.contaSem1.get(j).tBool);
+                fila.createCell(9).setCellValue(compi.contaSem1.get(j).tNone);
+                fila.createCell(10).setCellValue(compi.contaSem1.get(j).tLista);
+                fila.createCell(11).setCellValue(compi.contaSem1.get(j).tRango);
+                fila.createCell(12).setCellValue(compi.contaSem1.get(j).tArr);
+                fila.createCell(13).setCellValue(compi.contaSem1.get(j).tConj);
+                fila.createCell(14).setCellValue(compi.contaSem1.get(j).tDicc);
+                fila.createCell(15).setCellValue(compi.contaSem1.get(j).tVariant);
+                fila.createCell(16).setCellValue(compi.contaSem1.get(j).asignacion);
+            }
+            
             try {
-                workbook.write(new FileOutputStream(new File("C:\\Users\\Computer\\Desktop\\Resultados en Excel compi\\Joceline Perez - 15130226 - Resultados.xlsx")));
-                Desktop.getDesktop().open(new File("C:\\Users\\Computer\\Desktop\\Resultados en Excel compi\\Joceline Perez - 15130226 - Resultados.xlsx"));
+                workbook.write(new FileOutputStream(new File("C:\\Users\\Computer\\Desktop\\Resultados en Excel compi\\JocelinePerez_Resultados.xlsx")));
+                Desktop.getDesktop().open(new File("C:\\Users\\Computer\\Desktop\\Resultados en Excel compi\\JocelinePerez_Resultados.xlsx"));
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Lexico.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1544,7 +1583,7 @@ public class Lexico extends javax.swing.JFrame {
 
         }
         // </editor-fold>
-    }//GEN-LAST:event_GenerarActionPerformed
+    }//GEN-LAST:event_Generar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1584,8 +1623,9 @@ public class Lexico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ContadoresTB;
-    private javax.swing.JButton Generar;
+    private javax.swing.JButton Generar1;
     public static javax.swing.JLabel LabelID;
+    private javax.swing.JButton btn_tablaSemantica1;
     private javax.swing.JButton btnanalizar;
     private javax.swing.JButton btnsubir;
     private javax.swing.JLabel jLabel1;

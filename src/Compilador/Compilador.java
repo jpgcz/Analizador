@@ -54,8 +54,8 @@ public class Compilador {
     // </editor-fold>  
     // <editor-fold defaultstate="collapsed" desc="Arreglo de Producciones">
     int listap[][] = {
-        {401, -41, 203, 246, 400, -40, 202},// Program::= A { Estatutos A2 }
-        {202, -34, 201, -37, 204, 402, -36, -1, -68},// A::=def id (B) Program ; A
+        {801, -41, 203, 246, 800, -40, 202},// Program::= A { Estatutos A2 }
+        {202, -34, 201, -37, 204, 802, -36, -1, -68},// A::=def id (B) Program ; A
         {202, -34, 206, -42, -1}, // A::= id = Constante ; A
         {203, 246, -34},// A2::=; Estatutos A2
         {205, -1}, // B::= id C
@@ -73,51 +73,51 @@ public class Compilador {
         {-4}, // ConstEntero::=binario
         {-5}, // ConstEntero::=hexadecimal
         {-6}, // ConstEntero::=octal
-        {401, -37, 209, 212, 402, -36}, // ListTupRangos::=( Or D )
+        {803, -37, 209, 212, 802, -36}, // ListTupRangos::=( Or D )
         {214}, // ListTupRangos::=Arr
         {-37, 207, -35, 207, -35, 207, -36, -69}, // ListTupRangos::=range ( ConstEntero , ConstEntero , ConstEntero )
-        {401, -41, 211, 210, 206, 402, -40}, // ListTupRangos::={ Constante E }
+        {803, -41, 211, 210, 206, 802, -40}, // ListTupRangos::={ Constante E }
         {209, 212, -35}, // D::=, Or D
         {211, 206, -51}, // E::=: Constante F
         {211, 210, 206, -35}, // F::=, Constante E
         {213, 218}, // Or::=And G
-        {213, 218, -22}, // G::=|| And G
-        {-39, 216, 212, 215, -38}, // Arr::=[ H Or H2 ]           {403,-39, 216, 212, 215, 402, -38}
+        {213, 804, 218, -22}, // G::=|| And G
+        {-39, 216, 212, 215, -38}, // Arr::=[ H Or H2 ]
         {-12},// H::=-
         {217, 212, 215, -51},// H2::=: H Or I
         {212, 215, -51}, // I::=: H Or 
         {219, 220}, //And::=Not J
-        {219, 220, -21}, // J::=&& Not J
-        {219, 220, -2}, // J::=## Not J
+        {219, 804, 220, -21}, // J::=&& Not J
+        {219,804,220, -2}, // J::=## Not J
         {221, 222}, // Not::=ExpPas K
-        {221, 222, -20}, // K::=! ExpPas K
+        {221, 804, 222, -20}, // K::=! ExpPas K
         {223, 224}, // ExpPas::=Orlog L
-        {223, 224, -23}, // L::=< ExpPas
-        {223, 224, -24}, // L::=<= ExpPas
-        {223, 224, -27}, // L::=== ExpPas
-        {223, 224, -28}, // L::=!= ExpPas
-        {223, 224, -26}, // L::=>= ExpPas
-        {223, 224, -25}, // L::=> ExpPas
+        {223, 804, 224, -23}, // L::=< ExpPas
+        {223, 804, 224, -24}, // L::=<= ExpPas
+        {223, 804, 224, -27}, // L::=== ExpPas
+        {223, 804, 224, -28}, // L::=!= ExpPas
+        {223, 804, 224, -26}, // L::=>= ExpPas
+        {223, 804, 224, -25}, // L::=> ExpPas
         {223, 224, -52}, // L::=is ExpPas
         {223, 224, -53}, // L::=isnot ExpPas
         {223, 224, -60}, // L::=in ExpPas
         {223, 224, -64}, // L::=innot ExpPas
         {225, 226}, // Orlog::=Xorlog M
-        {225, 226, -30}, // M::=| Xorlog M
+        {225, 804, 226, -30}, // M::=| Xorlog M
         {227, 228}, // Xorlog::=Andlog N
-        {227, 228, -31}, // N::=^ Andlog N
+        {227,804,228, -31}, // N::=^ Andlog N
         {229, 230}, // Andlog::=Opbit O
-        {229, 230, -29}, // O::=& Opbit O
+        {229, 804 ,230, -29}, // O::=& Opbit O
         {231, 232}, // Opbit::=SimpleExpPas P
-        {231, 232, -32}, // P::=<< SimpleExpPas P
-        {231, 232, -33}, // P::=>> SimpleExpPas P
+        {231, 804 ,232, -32}, // P::=<< SimpleExpPas P
+        {231, 804 ,232, -33}, // P::=>> SimpleExpPas P
         {233, 234}, // SimpleExpPas::=TerminoPascal Q
-        {233, 234, -12}, // Q::=- TerminoPascal Q
-        {233, 234, -11}, // Q::=+ TerminoPascal Q
+        {233, 804, 234, -12}, // Q::=- TerminoPascal Q
+        {233, 804, 234, -11}, // Q::=+ TerminoPascal Q
         {235, 236}, // TerminoPascal::=Elevacion R
-        {235, 236, -13}, // R::=* Elevacion R
-        {235, 236, -15}, // R::=/ Elevacion R
-        {235, 236, -16}, // R::=// Elevacion R
+        {235, 804, 236, -13}, // R::=* Elevacion R
+        {235, 804, 236, -15}, // R::=/ Elevacion R
+        {235, 804 ,236, -16}, // R::=// Elevacion R
         {235, 236, -17}, // R::=% Elevacion R
         {237, 238}, // Elevacion::=Factor S
         {237, 238, -14}, // S::=** Factor S
@@ -127,11 +127,11 @@ public class Compilador {
         {239, -1, -19}, // Factor::=-- id T
         {245}, // Factor::=Funciones 
         {240, 214}, // T::=Arr U
-        {241,243}, // T::= Asign V
+        {241, 243}, // T::= Asign V
         {-18}, // T::=++
         {-19}, // T::=--
         {244, -50}, // T::=. Funlist
-        {241, 243}, // U::=Asign V
+        {805, 241, 243}, // U::=Asign V
         {212}, // V::=Or
         {-37, 242, -36, -70}, // V::=input ( W )
         {-7}, // W::=constcadena
@@ -180,6 +180,20 @@ public class Compilador {
         {},//epsilon
     };
     // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Variables de Ambito"> 
+    Token idTemp;
+    Token par1, par2, par3;
+    String tipoVar;
+    int ambTemp;
+    int contParame = 0;
+    boolean zDeclaracion = true;
+    int tipoDeclaracion = 0;
+    LinkedList<Token> parametros = new LinkedList();
+    LinkedList<Token> llaves = new LinkedList();
+    public LinkedList<ContadoresAmbito> contadoresAmbito = new LinkedList();
+    int contAmbitos = 0;
+    Stack<Integer> ambitos = new Stack();
+    //</editor-fold>
 
     public Compilador() {
         try {
@@ -453,7 +467,7 @@ public class Compilador {
                         } else {
                             tokeen.add(new Token(estado, lexema, lineas));
                         }
-                    }else if (estado == -100){
+                    } else if (estado == -100) {
                         lineas--;
                     }
 
@@ -671,7 +685,9 @@ public class Compilador {
                         break;
                     }
                 } else {
-                    compilarAmbito(tokeen2.removeFirst());
+                    Token tokenRemovido = tokeen2.removeFirst();
+                    compilarAmbito(tokenRemovido);
+                    compilarSemantica1(tokenRemovido);
                 }
             } else {
 
@@ -685,31 +701,9 @@ public class Compilador {
 
                     break;
                 } else {
-                    if (pilaproducciones.peek() > 399) {//Aqui se activan y desactivan las banderas haciendole un pop a la pila sintactica
-                        if (pilaproducciones.peek() == 400) {
-                            zDeclaracion = false;
-                            pilaproducciones.pop();
-                        }
-                        if (pilaproducciones.peek() == 401) {
-                            zDeclaracion = true;
-                            guardarContadoresAmbito();
-                            ambitos.pop();
-                            pilaproducciones.pop();
-                        }
-                        if (pilaproducciones.peek() == 402) {
-                            if(zDeclaracion){
-                                contAmbitos += 1;
-                                ambitos.add(contAmbitos);
-                            }
-                            pilaproducciones.pop();
-                        }
-//                        if (pilaproducciones.peek() == 403) {
-//                            if(zDeclaracion){
-//                                guardarContadoresAmbito();
-//                                ambitos.pop();
-//                            }
-//                            pilaproducciones.pop();
-//                        }
+                    if (pilaproducciones.peek() > 799) {//Aqui se activan y desactivan las banderas haciendole un pop a la pila sintactica
+                        arrobasAmbito(pilaproducciones.peek());
+                        arrobasSemantica1(pilaproducciones.peek());
                     }
                     if (pilaproducciones.peek() >= 200 && pilaproducciones.peek() < 251 && tokeen2.getFirst().est < 0) {
 
@@ -906,19 +900,6 @@ public class Compilador {
         expas = 0;
     }
 
-    Token idTemp;
-    Token par1, par2, par3;
-    String tipoVar;
-    int ambTemp;
-    int contParame = 0;
-    boolean zDeclaracion = true;
-    int tipoDeclaracion = 0;
-    LinkedList<Token> parametros = new LinkedList();
-    LinkedList<Token> llaves = new LinkedList();
-    public LinkedList<ContadoresAmbito> contadoresAmbito = new LinkedList();
-    int contAmbitos = 0;
-    Stack<Integer> ambitos = new Stack();
-
     public void compilarAmbito(Token token) {
         if (zDeclaracion) {
             if (tipoDeclaracion == 0) {
@@ -926,7 +907,6 @@ public class Compilador {
                     tipoDeclaracion = 1;
                 } else if (token.est == -1) {
                     //Checar si existe ese id en la base de datos
-                    //System.out.println(token.valor + " " + ambitos.peek() + "");
                     if (TablaSimbolos.buscar(token.valor.trim(), ambitos.peek() + "")) {
                         errorxd.add(new LE("Identificador ya declarado", token.valor, "Ambito", 700, token.linea));
                         tipoDeclaracion = 101;
@@ -957,7 +937,6 @@ public class Compilador {
                         ambTemp = ambitos.peek();
                     }
                     if (token.est == -38) {
-                        //ambTemp = ambitos.peek(); //quitar
                         tipoDeclaracion = 10;
                     }
                 } else if (tipoDeclaracion > 3 && tipoDeclaracion < 7) { //Declarar rangos
@@ -980,9 +959,681 @@ public class Compilador {
         }
     }
 
+    Stack<Token> operandos = new Stack();
+    Stack<Token> signos = new Stack();
+    public LinkedList<ContadoresSemantica1> contaSem1 = new LinkedList();
+    // <editor-fold defaultstate="collapsed" desc="Arreglo suma"> 
+    String[][] arrSuma
+            = {
+                {"TmpDec", "TmpFloat", "TmpCadena", "TmpDec", "Err", "Err", "Err", "TmpComplej", "Err", "Err", "TmpArr", "Err", "Err", "Err", "Err", "TmpRango", "TmpDec"},
+                {"TmpFloat", "TmpFloat", "TmpCadena", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpFloat"},
+                {"TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "TmpCadena", "Err", "Err", "TmpCadena", "TmpCadena"},
+                {"TmpDec", "Err", "TmpCadena", "TmpChar", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpChar",},
+                {"Err", "Err", "TmpCadena", "Err", "TmpBinario", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBinario"},
+                {"Err", "Err", "TmpCadena", "Err", "Err", "TmpHex", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpHex"},
+                {"Err", "Err", "TmpCadena", "Err", "Err", "Err", "TmpOctal", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpOctal"},
+                {"TmpComplej", "Err", "TmpCadena", "Err", "Err", "Err", "Err", "TmpComplej", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpComplej"},
+                {"Err", "Err", "TmpCadena", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "TmpCadena", "Err", "Err", "Err", "Err", "Err", "Err", "TmpList", "Err", "Err", "Err", "Err", "Err", "Err", "TmpList"},
+                {"TmpArr", "Err", "TmpCadena", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpArr", "Err", "Err", "Err", "Err", "Err", "TmpArr"},
+                {"Err", "Err", "TmpCadena", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpTupla", "Err", "Err", "Err", "Err", "TmpTupla"},
+                {"Err", "Err", "TmpCadena", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpConjunto", "Err", "Err", "Err", "TmpConjunto"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpDicc", "Err", "Err", "TmpDicc"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpRango", "Err", "TmpCadena", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpRango", "TmpRango"},
+                {"TmpDec", "TmpFloat", "TmpCadena", "TmpChar", "TmpBinario", "TmpHex", "TmpOctal", "TmpComplej", "TmpBool", "TmpList", "TmpArr", "TmpTupla", "TmpConjunto", "TmpDicc", "Err", "TmpRango", "Variant"}
+            };
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Arreglo resta"> 
+    String[][] arrResta
+            = {
+                {"TmpDec", "TmpFloat", "Err", "Err", "Err", "Err", "Err", "TmpComplej", "Err", "Err", "TmpArr", "Err", "Err", "Err", "Err", "Err", "TmpDec"},
+                {"TmpFloat", "TmpFloat", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpFloat"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "TmpBinario", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "TmpHex", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "TmpOctal", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpComplej", "Err", "Err", "Err", "Err", "Err", "Err", "TmpComplej", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpArr", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpDec", "TmpFloat", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Variant"}
+            };
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Arreglo multi"> 
+    String[][] arrMulti
+            = {
+                {"TmpDec", "TmpFloat", "Err", "Err", "Err", "Err", "Err", "TmpComplej", "Err", "Err", "TmpArr", "Err", "Err", "Err", "Err", "Err", "TmpDec"},
+                {"TmpFloat", "TmpFloat", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpFloat"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "TmpBinario", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "TmpHex", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "TmpOctal", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpComplej", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpArr", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpDec", "TmpFloat", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Variant"},};
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Arreglo dividir"> 
+    String[][] arrDiv
+            = {
+                {"TmpFloat", "TmpFloat", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpArr", "Err", "Err", "Err", "Err", "Err", "TmpFloat"},
+                {"TmpFloat", "TmpFloat", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpFloat"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpArr", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpFloat", "TmpFloat", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Variant"}
+            };
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Arreglo rela"> 
+    String[][] arrRela
+            = {
+                {"TmpBool", "TmpBool", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"TmpBool", "TmpBool", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"TmpBool", "TmpBool", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "TmpBool"},
+                {"TmpBool", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},};
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Arreglo operadores"> 
+    String[][] arrOpera
+            = {
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBool"},};
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Arreglo Desplazamiento">
+    String[][] arrDesplaza 
+            = {
+                {"TmpDec", "Err", "Err", "Err", "TmpBinario", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpDec"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpBinario", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpBinario"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpDec", "Err", "Err", "Err", "TmpBinario", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpDec"},};
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Arreglo Division Entero"> 
+    String[][] arrDivEnt
+            = {
+                {"TmpDec", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpDec"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err"},
+                {"TmpDec", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "Err", "TmpDec"},};
+    // </editor-fold>
+    
+    int tDec = 0, tBin = 0, tHex = 0, tOct = 0,
+            tFlot = 0, tCaden = 0, tCarac = 0, tComple = 0, tBool = 0, tNone = 0,
+            tLista = 0, tArr = 0, tTup = 0, tConj = 0, tRango = 0, tDicc = 0, tVariant = 0;
+
+    public void compilarSemantica1(Token token) {
+        if (!zDeclaracion) {
+            if (token.est == -1) {
+                Token tokenGenerado = buscarGenerarToken(token);
+                operandos.add(tokenGenerado);
+            } else if (isOperando(token)) {
+                operandos.add(token);
+            } else if (isSigno(token)) {
+                signos.add(token);
+            }
+        }
+    }
+
+    private void generarTemp() {
+        Token operando1 = operandos.pop();
+        Token operando2 = operandos.pop();
+        Token signo = signos.pop();
+
+        int fila = getNumeroFilaColumna(operando1);
+        int columna = getNumeroFilaColumna(operando2);
+//        guardarContadoresSem1(signo);
+        Token tokenGenerado = compararOperandos(fila, columna, signo,operando1,operando2);
+        System.out.println(operando2.valor.trim() + " " + signo.valor.trim() + " " + operando1.valor.trim() + "\tGenera: " + tokenGenerado.valor);
+        operandos.add(tokenGenerado);
+    }
+
+    private void operacionAsignacion() {
+        String asignacion = "";
+        Token operando1 = operandos.pop();
+        Token operando2 = operandos.pop();
+        signos.pop();
+        if (operando1.est == operando2.est) {
+            asignacion = getNombreAsignacion(operando2) + " <- " + getNombreAsignacion(operando1);
+            System.out.println(asignacion);
+            System.out.println("");
+            guardarContadoresSem1(operando2);
+            setAsignacionFinal(asignacion,operando2.linea);
+        } else {
+            errorxd.add(new LE("Tipo de datos incompatibles", operando2.valor, "Semantica 1", 704, operando2.linea));
+            asignacion = getNombreAsignacion(operando2) + " <- " + getNombreAsignacion(operando1);
+            System.out.println(asignacion);
+            System.out.println("");
+            guardarContadoresSem1(operando2);
+            setAsignacionFinal(asignacion,operando2.linea);
+        }
+    }
+    
+    private void setAsignacionFinal(String asignacion, int numLinea){
+        for (int j = 0; j < contaSem1.size(); j++) {
+            if(contaSem1.get(j).getNumLinea() == numLinea){
+//                System.out.println("Entrooooooo alv");
+                contaSem1.get(j).setAsignacion(asignacion);
+                break;
+            }
+        }
+    }
+    
+    private String getNombreAsignacion(Token token){
+        String nombre = "";
+        int num = token.est;
+        if(num == -3) nombre = "Entero";
+        else if(num == -8) nombre = "Flotante";
+        else if(num == -7) nombre = "Cadena";
+        else if(num == -10) nombre = "Caracter";
+        else if(num == -4) nombre = "Binario";
+        else if(num == -5) nombre = "Hexadecimal";
+        else if(num == -6) nombre = "Octal";
+        else if(num == -9) nombre = "Complejo";
+        else if(num == -104) nombre = "Booleano";
+        else if(num == -66) nombre = "Booleano";
+        else if(num == -67) nombre = "Booleano";
+        else if(num == -96) nombre = "Lista";
+        else if(num == -97) nombre = "Arreglo";
+        else if(num == -98) nombre = "Tupla";
+        else if(num == -99) nombre = "Conjunto";
+        else if(num == -100) nombre = "Diccionario";
+        else if(num == -101) nombre = "None";
+        else if(num == -102) nombre = "Rango";
+        else if(num == -103) nombre = "Variant";
+        return nombre;
+    }
+
+    private Token compararOperandos(int fila, int columna, Token signo, Token op1, Token op2) {
+        Token tokenGenerado = null;
+        int numToken = 0;
+        String datoObtenido = "";
+        String valorToken = "";
+        if (signo.est == -11) {//Suma
+            datoObtenido = arrSuma[fila][columna];
+            numToken = getNumeroToken(datoObtenido);
+            if (numToken == -105) {//Se genera un error
+                errorxd.add(new LE("Error al sumar", op2.valor+" <- "+op1.valor, "Semantica 1", 705, signo.linea));
+                numToken = -103;//Lo convierte en Variant
+                valorToken = "Variant"+ tVariant;
+                tVariant++;
+            }else{
+                valorToken = generarValorToken(datoObtenido);
+            }
+            tokenGenerado = new Token(numToken, valorToken, signo.linea);
+            
+        } else if (signo.est == -12) { //Resta
+            datoObtenido = arrResta[fila][columna];
+            numToken = getNumeroToken(datoObtenido);
+            if (numToken == -105) {//Se genera un error
+                errorxd.add(new LE("Error al restar", op2.valor+" <- "+op1.valor, "Semantica 1", 706, signo.linea));
+                numToken = -103;//Lo convierte en Variant
+                valorToken = "Variant"+ tVariant;
+                tVariant++;
+            }else{
+                valorToken = generarValorToken(datoObtenido);
+            }
+            tokenGenerado = new Token(numToken, valorToken, signo.linea);
+        } else if (signo.est == -13) {//Multiplicacion
+            datoObtenido = arrMulti[fila][columna];
+            numToken = getNumeroToken(datoObtenido);
+            if (numToken == -105) {//Se genera un error
+                errorxd.add(new LE("Error al multiplicar", op2.valor+" <- "+op1.valor, "Semantica 1", 707, signo.linea));
+                numToken = -103;//Lo convierte en Variant
+                valorToken = "Variant"+ tVariant;
+                tVariant++;
+            }else{
+                valorToken = generarValorToken(datoObtenido);
+            }
+            tokenGenerado = new Token(numToken, valorToken, signo.linea);
+        } else if (signo.est == -15) {//Divicion
+            datoObtenido = arrDiv[fila][columna];
+            numToken = getNumeroToken(datoObtenido);
+            if (numToken == -105) {//Se genera un error
+                errorxd.add(new LE("Error al dividir", op2.valor+" <- "+op1.valor, "Semantica 1", 708, signo.linea));
+                numToken = -103;//Lo convierte en Variant
+                valorToken = "Variant"+ tVariant;
+                tVariant++;
+            }else{
+                valorToken = generarValorToken(datoObtenido);
+            }
+            tokenGenerado = new Token(numToken, valorToken, signo.linea);
+        } else if (isRelacional(signo)) {//Relacionales
+            datoObtenido = arrRela[fila][columna];
+            numToken = getNumeroToken(datoObtenido);
+            if (numToken == -105) {//Se genera un error
+                errorxd.add(new LE("Error al relacionar", op2.valor+" <- "+op1.valor, "Semantica 1", 709, op2.linea));
+                numToken = -103;//Lo convierte en Variant
+                valorToken = "Variant"+ tVariant;
+                tVariant++;
+            }else{
+                valorToken = generarValorToken(datoObtenido);
+            }
+            tokenGenerado = new Token(numToken, valorToken, signo.linea);
+        } else if (isLogico(signo)) {//Op Logicos
+            datoObtenido = arrOpera[fila][columna];
+            numToken = getNumeroToken(datoObtenido);
+            if (numToken == -105) {//Se genera un error
+                errorxd.add(new LE("Error al realizar operacion logica", op2.valor+" <- "+op1.valor, "Semantica 1", 710, signo.linea));
+                numToken = -103;//Lo convierte en Variant
+                valorToken = "Variant"+ tVariant;
+                tVariant++;
+            }else{
+                valorToken = generarValorToken(datoObtenido);
+            }
+            tokenGenerado = new Token(numToken, valorToken, signo.linea);
+        } else if (signo.est == -32 || signo.est == -33) {//Desplaza
+            datoObtenido = arrDesplaza[fila][columna];
+            numToken = getNumeroToken(datoObtenido);
+            if (numToken == -105) {//Se genera un error
+                errorxd.add(new LE("Error al Desplazar", op2.valor+" <- "+op1.valor, "Semantica 1", 711, signo.linea));
+                numToken = -103;//Lo convierte en Variant
+                valorToken = "Variant"+ tVariant;
+                tVariant++;
+            }else{
+                valorToken = generarValorToken(datoObtenido);
+            }
+            tokenGenerado = new Token(numToken, valorToken, signo.linea);
+        } else if (signo.est == -16) {//Divicion Entero
+            datoObtenido = arrDivEnt[fila][columna];
+            numToken = getNumeroToken(datoObtenido);
+            if (numToken == -105) {//Se genera un error
+                errorxd.add(new LE("Error al realizar divicion entera", op2.valor+" <- "+op1.valor, "Semantica 1", 712, op2.linea));
+                numToken = -103;//Lo convierte en Variant
+                valorToken = "Variant"+ tVariant;
+                tVariant++;
+            }else{
+                valorToken = generarValorToken(datoObtenido);
+            }
+            tokenGenerado = new Token(numToken, valorToken, signo.linea);
+        }
+        return tokenGenerado;
+    }
+
+    private String generarValorToken(String datoObtenido) {
+        String valorToken = "";
+        if (datoObtenido.equals("TmpDec")) {
+            valorToken = datoObtenido + tDec;
+        } else if (datoObtenido.equals("TmpFloat")) {
+            valorToken = datoObtenido + tFlot;
+        } else if (datoObtenido.equals("TmpCadena")) {
+            valorToken = datoObtenido + tCaden;
+        } else if (datoObtenido.equals("TmpChar")) {
+            valorToken = datoObtenido + tCarac;
+        } else if (datoObtenido.equals("TmpBinario")) {
+            valorToken = datoObtenido + tBin;
+        } else if (datoObtenido.equals("TmpHex")) {
+            valorToken = datoObtenido + tHex;
+        } else if (datoObtenido.equals("TmpOctal")) {
+            valorToken = datoObtenido + tOct;
+        } else if (datoObtenido.equals("TmpComplej")) {
+            valorToken = datoObtenido + tComple;
+        } else if (datoObtenido.equals("TmpBool")) {
+            valorToken = datoObtenido + tBool;
+        } else if (datoObtenido.equals("TmpList")) {
+            valorToken = datoObtenido + tLista;
+        } else if (datoObtenido.equals("TmpArr")) {
+            valorToken = datoObtenido + tArr;
+        } else if (datoObtenido.equals("TmpTupla")) {
+            valorToken = datoObtenido + tTup;
+        } else if (datoObtenido.equals("TmpConjunto")) {
+            valorToken = datoObtenido + tConj;
+        } else if (datoObtenido.equals("TmpDicc")) {
+            valorToken = datoObtenido + tDicc;
+        } else if (datoObtenido.equals("TmpRango")) {
+            valorToken = datoObtenido + tRango;
+        } else if (datoObtenido.equals("Variant")) {
+            valorToken = datoObtenido + tVariant;
+        }
+
+        return valorToken;
+    }
+
+    private Token buscarGenerarToken(Token token) {
+        Token tokenGenerado = null;
+        int numToken = 0;
+        if(TablaSimbolos.buscar(token.valor.trim(), ambitos.peek()+"")){
+//            String tipo = TablaSimbolos.ObtenerTipo(token.valor.trim(), ambitos.peek()+"");
+            numToken = getNumTokenBaseDatos(token,ambitos.peek());
+            tokenGenerado = new Token(numToken, token.valor.trim(), token.linea);
+        }
+        else if (buscarIdEnAmbitosSem1(token)) {
+            int ambitoEncontrado = obtenerAmbitoEncontradoSem1(token);
+//            String tipo = TablaSimbolos.ObtenerTipo(token.valor.trim(), ambitoEncontrado+"");
+            numToken = getNumTokenBaseDatos(token,ambitoEncontrado);
+            tokenGenerado = new Token(numToken, token.valor.trim(), token.linea);
+        } else {
+            numToken = -103;
+            tokenGenerado = new Token(numToken, token.valor.trim(), token.linea);
+        }
+        return tokenGenerado;
+    }
+
+    private int getNumTokenBaseDatos(Token token, int ambito) {
+        int numToken = 0;
+        String dato = TablaSimbolos.ObtenerTipo(token.valor.trim(),ambito+"");
+        if ("Decimal".equals(dato)) {
+            numToken = -3;
+        } else if ("Binario".equals(dato)) {
+            numToken = -4;
+        } else if ("Hexadecimal".equals(dato)) {
+            numToken = -5;
+        } else if ("Octal".equals(dato)) {
+            numToken = -6;
+        } else if ("Cadena".equals(dato)) {
+            numToken = -7;
+        } else if ("Flotante".equals(dato)) {
+            numToken = -8;
+        } else if ("Complejo".equals(dato)) {
+            numToken = -9;
+        } else if ("Caracter".equals(dato)) {
+            numToken = -10;
+        } else if ("None".equals(dato)) {
+            numToken = -101;
+        } else if ("Booleano".equals(dato)) {
+            numToken = -104;
+        } else if ("Struct".equals(dato)) {
+            dato = TablaSimbolos.ObtenerClase(token.valor.trim(),ambito+"");
+            if ("Rango".equals(dato)) {
+                numToken = -102;
+            } else if ("Tupla".equals(dato)) {
+                numToken = -98;
+            } else if ("Conjunto".equals(dato)) {
+                numToken = -99;
+            } else if ("Diccionario".equals(dato)) {
+                numToken = -100;
+            } else if ("Arreglo".equals(dato)) {
+                numToken = -97;
+            }
+        }
+        return numToken;
+    }
+
+    private int getNumeroToken(String dato) {
+        int numToken = 0;
+        if (dato.equals("TmpDec")) {
+            numToken = -3;
+            tDec++;
+        } else if (dato.equals("TmpFloat")) {
+            numToken = -8;
+            tFlot++;
+        } else if (dato.equals("TmpCadena")) {
+            numToken = -7;
+            tCaden++;
+        } else if (dato.equals("TmpChar")) {
+            numToken = -10;
+            tCarac++;
+        } else if (dato.equals("TmpBinario")) {
+            numToken = -4;
+            tBin++;
+        } else if (dato.equals("TmpHex")) {
+            numToken = -5;
+            tHex++;
+        } else if (dato.equals("TmpOctal")) {
+            numToken = -6;
+            tOct++;
+        } else if (dato.equals("TmpComplej")) {
+            numToken = -9;
+            tComple++;
+        } else if (dato.equals("TmpBool")) {
+            numToken = -104;
+            tBool++;
+        } else if (dato.equals("TmpList")) {
+            numToken = -96;
+            tLista++;
+        } else if (dato.equals("TmpArr")) {
+            numToken = -97;
+            tArr++;
+        } else if (dato.equals("TmpTupla")) {
+            numToken = -98;
+            tTup++;
+        } else if (dato.equals("TmpConjunto")) {
+            numToken = -99;
+            tConj++;
+        } else if (dato.equals("TmpDicc")) {
+            numToken = -100;
+            tDicc++;
+        } else if (dato.equals("TmpRango")) {
+            numToken = -102;
+            tRango++;
+        } else if (dato.equals("Variant")) {
+            numToken = -103;
+            tVariant++;
+        } else if (dato.equals("Err")) {
+            numToken = -105;
+        }
+
+        return numToken;
+    }
+
+    private int getNumeroFilaColumna(Token token) {
+        int num = 0;
+        switch (token.est) {
+            case -3:
+                num = 0;
+                break;
+            case -4:
+                num = 4;
+                break;
+            case -5:
+                num = 5;
+                break;
+            case -6:
+                num = 6;
+                break;
+            case -7:
+                num = 2;
+                break;
+            case -8:
+                num = 1;
+                break;
+            case -9:
+                num = 7;
+                break;
+            case -10:
+                num = 3;
+                break;
+            case -66:
+            case -67:
+            case -104:
+                num = 8;
+                break;
+            case -96:
+                num = 9;
+                break;
+            case -97:
+                num = 10;
+                break;
+            case -98:
+                num = 11;
+                break;
+            case -99:
+                num = 12;
+                break;
+            case -100:
+                num = 13;
+                break;
+            case -101:
+                num = 14;
+                break;
+            case -102:
+                num = 15;
+                break;
+            case -103:
+                num = 16;
+                break;
+        }
+        return num;
+    }
+
+    private boolean isOperando(Token token) {
+        if (token.est < -2 && token.est > -11 || token.est == -66 || token.est == -67) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isSigno(Token token) {
+        boolean b = true;
+        if(token.est == -2) b = true;
+        else if(token.est < -10 && token.est > -18) b = true;
+        else if(token.est < -19 && token.est > -34) b = true;
+        else if(token.est < -41 && token.est > -50) b = true;
+        else b = false;
+        return b;
+    }
+    
+    private boolean isLogico(Token token){
+        boolean b = false;
+        if(token.est == -20) b = true;
+        else if(token.est == -21) b = true;
+        else if(token.est == -22) b = true;
+        else if(token.est == -29) b = true;
+        else if(token.est == -30) b = true;
+        else if(token.est == -31) b = true;
+        else b = false;
+        return b;
+    }
+    
+    private boolean isRelacional(Token token){
+        boolean b = false;
+        if(token.est == -23) b = true;
+        else if(token.est == -24) b = true;
+        else if(token.est == -25) b = true;
+        else if(token.est == -26) b = true;
+        else if(token.est == -27) b = true;
+        else if(token.est == -28) b = true;
+        else b = false;
+        return b;
+    }
+    
+    private boolean isAsignacion(Token token){
+        boolean b = false;
+        if(token.est == -42) b = true;
+        else if(token.est == -43) b = true;
+        else if(token.est == -44) b = true;
+        else if(token.est == -45) b = true;
+        else if(token.est == -46) b = true;
+        else if(token.est == -47) b = true;
+        else if(token.est == -48) b = true;
+        else if(token.est == -48) b = true;
+        else b = false;
+        return b;
+    }
+    
+//    private boolean isOpBit(Token token){
+//        boolean b = false;
+//        if(token.est == -29) b = true;
+//        else if(token.est == -30) b = true;
+//        else if(token.est == -31) b = true;
+//        else b = false;
+//        return b;
+//    }
+
+    private void guardarContadoresSem1(Token signo) {
+                contaSem1.add(new ContadoresSemantica1(tDec, tBin, tHex, tOct, tFlot, tCaden, tCarac, tComple, tBool, tNone, tLista, tArr, tTup, tConj, tRango, tDicc, tVariant, signo.linea));
+                limpiarContadoresSem1();
+    }
+
+    private void limpiarContadoresSem1() {
+        tDec = 0;
+        tBin = 0;
+        tHex = 0;
+        tOct = 0;
+        tFlot = 0;
+        tCaden = 0;
+        tCarac = 0;
+        tComple = 0;
+        tBool = 0;
+        tNone = 0;
+        tLista = 0;
+        tArr = 0;
+        tTup = 0;
+        tConj = 0;
+        tRango = 0;
+        tDicc = 0;
+        tVariant = 0;
+    }
+
     private void declarFuncion(Token token) {
         if (TablaSimbolos.buscar(token.valor.trim(), ambitos.peek() + "")) {
-            //System.out.println("Entroooooo");
             errorxd.add(new LE("Funcion ya declarada", token.valor, "Ambito", 701, token.linea));
             tipoDeclaracion = 100;
         } else {
@@ -996,10 +1647,7 @@ public class Compilador {
 
     private void declarParamFun(Token token) {
         if (token.est == -1) {
-            //System.out.println(token.valor);
-            //System.out.println(ambitos.peek());
             if (TablaSimbolos.buscar(token.valor.trim(), ambitos.peek() + "")) {
-                //System.out.println("Entroooooo");
                 errorxd.add(new LE("Parametro ya declarado", token.valor, "Ambito", 702, token.linea));
             } else {
                 TablaSimbolos.registrarParamFunc(token.valor.trim(), ambitos.peek() + "", idTemp.valor, contParame + "");
@@ -1094,7 +1742,7 @@ public class Compilador {
             if (isConstEnt(token)) {
                 parametros.add(token);
             } else if (token.est == -39) {
-                TablaSimbolos.registrarArr(idTemp.valor.trim(), ambitos.peek() + ""); //ambitos.peek() ambTemp
+                TablaSimbolos.registrarArr(idTemp.valor.trim(), ambitos.peek() + "");
                 tipoDeclaracion = 0;
             }
         }
@@ -1106,7 +1754,7 @@ public class Compilador {
                 tipoVar = "Decimal";
                 break;
             case -4:
-                tipoVar = "Binareo";
+                tipoVar = "Binario";
                 break;
             case -5:
                 tipoVar = "Hexadecimal";
@@ -1151,8 +1799,35 @@ public class Compilador {
         }
     }
 
+    private boolean buscarIdEnAmbitosSem1(Token token) {
+        boolean b = false;
+        if (token.est == -1) {
+            for (int j = 0; j < ambitos.size(); j++) {
+                b = TablaSimbolos.buscar(token.valor.trim(), ambitos.get(j) + "");
+                if (b) {
+                    break;
+                }
+            }
+        }
+        return b;
+    }
+    
+    private int obtenerAmbitoEncontradoSem1(Token token) {
+        int ambito = -1;
+        boolean b = true;
+        if (token.est == -1) {
+            for (int j = 0; j < ambitos.size(); j++) {
+                b = TablaSimbolos.buscar(token.valor.trim(), ambitos.get(j) + "");
+                if (b) {
+                    ambito = ambitos.get(j);
+                    return ambito;
+                }
+            }
+        }
+        return ambito;
+    }
+
     private void guardarContadoresAmbito() {
-        //System.out.println("Guardo contadores ambito");
         int ambito = this.ambitos.peek();
         int Decimales = TablaSimbolos.contarTipos("Decimal", ambito + "");
         int Binareos = TablaSimbolos.contarTipos("Binareo", ambito + "");
@@ -1483,9 +2158,9 @@ public class Compilador {
         for (int i = 0; i < listap[n - 1].length; i++) {//n-1
             pilaproducciones.push(listap[n - 1][i]);//n-1
         }
-        for (Integer p : pilaproducciones) {
-            //System.out.println("ps = " + p);
-        }
+//        for (Integer p : pilaproducciones) {
+//            //System.out.println("ps = " + p);
+//        }
     }
 
     public boolean epsilon(int n) {
@@ -1495,6 +2170,44 @@ public class Compilador {
 
     public boolean error(int n) {
         return n > 500;
+    }
+
+    private void arrobasAmbito(int peek) {
+        if (peek == 800) {
+            zDeclaracion = false;
+            pilaproducciones.pop();
+        }
+        if (peek == 801) {
+            zDeclaracion = true;
+            guardarContadoresAmbito();
+            ambitos.pop();
+            pilaproducciones.pop();
+        }
+        if (peek == 802) {
+            if (zDeclaracion) {
+                contAmbitos += 1;
+                ambitos.add(contAmbitos);
+            }
+            pilaproducciones.pop();
+        }
+        if (peek == 803) {
+            if (zDeclaracion) {
+                guardarContadoresAmbito();
+                ambitos.pop();
+            }
+            pilaproducciones.pop();
+        }
+    }
+
+    private void arrobasSemantica1(int peek) {
+        if (peek == 804) {
+            generarTemp();
+            pilaproducciones.pop();
+        }
+        if (peek == 805) {
+            operacionAsignacion();
+            pilaproducciones.pop();
+        }
     }
 
     public void limpiarVariables() {
@@ -1519,5 +2232,7 @@ public class Compilador {
         ambitos.clear();
         ambitos.add(0);
         contadoresAmbito.clear();
+        contaSem1.clear();
+        limpiarContadoresSem1();
     }
 }
