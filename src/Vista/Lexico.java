@@ -307,6 +307,7 @@ public class Lexico extends javax.swing.JFrame {
     jLabel26 = new javax.swing.JLabel();
     jLabel27 = new javax.swing.JLabel();
     Generar1 = new javax.swing.JButton();
+    jButton1 = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setAutoRequestFocus(false);
@@ -377,7 +378,7 @@ public class Lexico extends javax.swing.JFrame {
     });
     jScrollPane3.setViewportView(tablatokens);
 
-    jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 340, 540, 180));
+    jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 340, 700, 180));
 
     jScrollPane2.setBorder(null);
 
@@ -403,16 +404,16 @@ public class Lexico extends javax.swing.JFrame {
     });
     jScrollPane2.setViewportView(tablaerrores);
 
-    jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 590, 260));
+    jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 700, 260));
 
     btn_tablaSemantica1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-    btn_tablaSemantica1.setText("Tabla Semantica");
+    btn_tablaSemantica1.setText("Tabla Semantica I");
     btn_tablaSemantica1.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btn_tablaSemantica1ActionPerformed(evt);
         }
     });
-    jPanel1.add(btn_tablaSemantica1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 150, -1));
+    jPanel1.add(btn_tablaSemantica1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 160, -1));
 
     jTablecontadoresSin.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
@@ -439,7 +440,7 @@ public class Lexico extends javax.swing.JFrame {
     jTextArea1.setRows(5);
     jScrollPane1.setViewportView(jTextArea1);
 
-    jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 890, 450));
+    jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 1020, 450));
 
     jScrollPane7.setBorder(null);
     jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -480,7 +481,7 @@ public class Lexico extends javax.swing.JFrame {
         jTablaAmbito.getColumnModel().getColumn(11).setPreferredWidth(20);
     }
 
-    jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 590, 840, 260));
+    jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 590, 1020, 260));
 
     jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
     jPanel6.setFocusable(false);
@@ -593,82 +594,82 @@ public class Lexico extends javax.swing.JFrame {
                     .addGap(10, 10, 10)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel14)
-                            .addGap(19, 19, 19)
-                            .addComponent(labelCNComp)
-                            .addGap(154, 154, 154)
-                            .addComponent(jLabel18)
-                            .addGap(13, 13, 13)
-                            .addComponent(labelAritmeticos)
-                            .addGap(84, 84, 84)
-                            .addComponent(jLabel24))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addGap(13, 13, 13)
-                            .addComponent(labelCtexto)
-                            .addGap(164, 164, 164)
-                            .addComponent(jLabel13)
-                            .addGap(12, 12, 12)
-                            .addComponent(labelAgrupacion))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel9)
-                            .addGap(10, 10, 10)
-                            .addComponent(labelCEHex)
-                            .addGap(164, 164, 164)
-                            .addComponent(jLabel11)
-                            .addGap(15, 15, 15)
-                            .addComponent(labelAsignacion))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel10)
-                            .addGap(16, 16, 16)
-                            .addComponent(labelCEOct)
-                            .addGap(164, 164, 164)
-                            .addComponent(jLabel4)
-                            .addGap(14, 14, 14)
-                            .addComponent(LabelID, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel12)
-                            .addGap(16, 16, 16)
-                            .addComponent(lablelCFloat))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(12, 12, 12)
-                                    .addComponent(labelComen)
-                                    .addGap(124, 124, 124)
-                                    .addComponent(jLabel20))
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addGap(11, 11, 11)
-                                    .addComponent(labelPR, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(jLabel21))
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addGap(24, 24, 24)
-                                    .addComponent(labelCcar)
-                                    .addGap(164, 164, 164)
-                                    .addComponent(jLabel19)
-                                    .addGap(14, 14, 14)
-                                    .addComponent(labelMonogamo)))
-                            .addGap(87, 87, 87)
+                                .addComponent(jLabel14)
+                                .addComponent(jLabel16)
+                                .addComponent(jLabel5))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel17)
                                 .addComponent(jLabel15)
                                 .addComponent(jLabel23)))
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelbit)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(21, 21, 21)
-                                .addComponent(labelCEDec)
-                                .addGap(154, 154, 154)
-                                .addComponent(jLabel22)
-                                .addGap(13, 13, 13)
-                                .addComponent(lablePuntuacion))
-                            .addComponent(labelLogico)))))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel7))
+                            .addGap(11, 11, 11)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labelCEDec)
+                                        .addComponent(labelCtexto)
+                                        .addComponent(labelCEHex)
+                                        .addComponent(labelCEOct)
+                                        .addComponent(lablelCFloat))
+                                    .addGap(123, 123, 123)
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                            .addGap(1, 1, 1)
+                                            .addComponent(jLabel20))
+                                        .addComponent(jLabel13)
+                                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                            .addGap(1, 1, 1)
+                                            .addComponent(jLabel11))
+                                        .addComponent(jLabel18)
+                                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                            .addGap(1, 1, 1)
+                                            .addComponent(jLabel19))
+                                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                            .addGap(2, 2, 2)
+                                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel4)
+                                                        .addComponent(jLabel22))
+                                                    .addGap(14, 14, 14)
+                                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(labelAgrupacion)
+                                                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                                            .addGap(2, 2, 2)
+                                                            .addComponent(labelAsignacion))
+                                                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                                            .addGap(1, 1, 1)
+                                                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                .addComponent(labelLogico)
+                                                                .addComponent(labelbit)
+                                                                .addComponent(lablePuntuacion)))
+                                                        .addComponent(LabelID, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                                            .addGap(1, 1, 1)
+                                                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                .addComponent(labelAritmeticos)
+                                                                .addComponent(labelMonogamo)))))
+                                                .addComponent(jLabel21))))
+                                    .addGap(119, 119, 119)
+                                    .addComponent(jLabel24)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labelCNComp)
+                                        .addComponent(labelCcar)
+                                        .addComponent(labelComen)
+                                        .addComponent(labelPR, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 446, Short.MAX_VALUE)))))))
+            .addGap(60, 60, 60)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelRelacionales, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -684,101 +685,108 @@ public class Lexico extends javax.swing.JFrame {
         .addGroup(jPanel6Layout.createSequentialGroup()
             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(6, 6, 6)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel14)
                         .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addGap(6, 6, 6)
+                                    .addComponent(jLabel16)
+                                    .addGap(3, 3, 3))
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(labelidentidad)
+                                    .addGap(6, 6, 6)
+                                    .addComponent(labelError)))
                             .addGap(3, 3, 3)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelCNComp)
-                                .addComponent(jLabel18)
+                                .addComponent(jLabel5)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addGap(3, 3, 3)
+                                    .addComponent(labelcebin))))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(labelCNComp)
+                            .addGap(6, 6, 6)
+                            .addComponent(labelCcar)
+                            .addGap(6, 6, 6)
+                            .addComponent(labelComen)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6)
+                        .addComponent(labelPR)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(labelRelacionales)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel8)
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel9)
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel10)
+                            .addGap(8, 8, 8)
+                            .addComponent(jLabel12))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(labelCEDec)
+                            .addGap(6, 6, 6)
+                            .addComponent(labelCtexto)
+                            .addGap(6, 6, 6)
+                            .addComponent(labelCEHex)
+                            .addGap(6, 6, 6)
+                            .addComponent(labelCEOct)
+                            .addGap(6, 6, 6)
+                            .addComponent(lablelCFloat))))
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(3, 3, 3)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(labelAritmeticos)
-                                .addComponent(jLabel24))))
-                    .addGap(3, 3, 3)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel16)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGap(3, 3, 3)
+                                .addComponent(jLabel18))
+                            .addGap(6, 6, 6)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelCcar)
                                 .addComponent(jLabel19)
-                                .addComponent(labelMonogamo)
-                                .addComponent(jLabel17)))))
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addComponent(labelidentidad)
-                    .addGap(6, 6, 6)
-                    .addComponent(labelError)))
-            .addGap(3, 3, 3)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel5)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(3, 3, 3)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelComen)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(labelLogico))
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(labelMonogamo))
+                            .addGap(6, 6, 6)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel20)
+                                .addComponent(labelLogico))
+                            .addGap(6, 6, 6)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel21)
+                                .addComponent(labelbit, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGap(6, 6, 6)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lablePuntuacion)
+                                .addComponent(jLabel22))
+                            .addGap(6, 6, 6)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel13)
+                                .addComponent(labelAgrupacion))
+                            .addGap(6, 6, 6)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel11)
+                                .addComponent(labelAsignacion))
+                            .addGap(6, 6, 6)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(LabelID)))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(jLabel24)
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel17)
+                            .addGap(6, 6, 6)
                             .addComponent(jLabel23)
-                            .addComponent(labelcebin)))))
-            .addGap(3, 3, 3)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel6)
-                .addComponent(labelPR)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(3, 3, 3)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel21)
-                        .addComponent(labelbit, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel15)
-                        .addComponent(labelRelacionales))))
-            .addGap(3, 3, 3)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel7)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(3, 3, 3)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelCEDec)
-                        .addComponent(jLabel22)
-                        .addComponent(lablePuntuacion))))
-            .addGap(3, 3, 3)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel8)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(3, 3, 3)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelCtexto)
-                        .addComponent(jLabel13)
-                        .addComponent(labelAgrupacion))))
-            .addGap(3, 3, 3)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel9)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(3, 3, 3)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelCEHex)
-                        .addComponent(jLabel11)
-                        .addComponent(labelAsignacion))))
-            .addGap(3, 3, 3)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel10)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(3, 3, 3)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelCEOct)
-                        .addComponent(jLabel4)
-                        .addComponent(LabelID))))
-            .addGap(5, 5, 5)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel12)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(1, 1, 1)
-                    .addComponent(lablelCFloat)))
-            .addGap(8, 8, 8))
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel15)))))
+            .addGap(9, 9, 9))
     );
 
-    jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 70, 540, 210));
+    jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 70, 700, 220));
 
     jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
     jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -788,27 +796,27 @@ public class Lexico extends javax.swing.JFrame {
     jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
     jLabel2.setForeground(new java.awt.Color(255, 255, 255));
     jLabel2.setText(".jpg");
-    jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1430, 30, -1, -1));
+    jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 30, -1, -1));
 
     jLabel3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
     jLabel3.setForeground(new java.awt.Color(255, 255, 255));
     jLabel3.setText("ERRORES");
-    jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, -1, -1));
+    jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, -1, -1));
 
     jLabel25.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
     jLabel25.setForeground(new java.awt.Color(255, 255, 255));
     jLabel25.setText("AMBITO");
-    jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 550, -1, -1));
+    jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 550, -1, -1));
 
     jLabel26.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
     jLabel26.setForeground(new java.awt.Color(255, 255, 255));
     jLabel26.setText("CONTADORES");
-    jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, -1, -1));
+    jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 30, -1, -1));
 
     jLabel27.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
     jLabel27.setForeground(new java.awt.Color(255, 255, 255));
     jLabel27.setText("TOKENS");
-    jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 300, -1, -1));
+    jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 300, -1, -1));
 
     Generar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
     Generar1.setText("EXCEL");
@@ -818,6 +826,18 @@ public class Lexico extends javax.swing.JFrame {
         }
     });
     jPanel1.add(Generar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 110, -1));
+
+    jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+    jButton1.setText("Tabla Semantica II");
+    jButton1.setMaximumSize(new java.awt.Dimension(143, 35));
+    jButton1.setMinimumSize(new java.awt.Dimension(143, 35));
+    jButton1.setPreferredSize(new java.awt.Dimension(143, 35));
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton1ActionPerformed(evt);
+        }
+    });
+    jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, 160, 30));
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -1572,9 +1592,43 @@ public class Lexico extends javax.swing.JFrame {
                 fila.createCell(16).setCellValue(compi.contaSem1.get(j).asignacion);
             }
             
+//            try {
+//                workbook.write(new FileOutputStream(new File("C:\\Users\\samu_\\Desktop\\9no Semestre\\Compi 2\\Excel's Generados\\ResultadosCompi.xlsx")));
+//                Desktop.getDesktop().open(new File("C:\\Users\\samu_\\Desktop\\9no Semestre\\Compi 2\\Excel's Generados\\ResultadosCompi.xlsx"));
+//            } catch (FileNotFoundException ex) {
+//                Logger.getLogger(Lexico.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+        // </editor-fold>
+        // <editor-fold defaultstate="collapsed" desc="SEMANTICA 2">
+        XSSFSheet hoja9 = workbook.createSheet("SEMANTICA 2");
+        try {
+            XSSFRow fila = hoja9.createRow(0);
+            fila.createCell(0).setCellValue("Regla");
+            fila.createCell(1).setCellValue("Tope de pila");
+            fila.createCell(2).setCellValue("Valor real");
+            fila.createCell(3).setCellValue("Linea");
+            fila.createCell(4).setCellValue("Estado");
+            fila.createCell(5).setCellValue("Ambito");
+            
+            XSSFRow filas;
+            int totalAmbitos = 0;
+            for (int j = 0; j < compi.listaSem2.size(); j++) {
+                fila = hoja9.createRow(j+1);
+                fila.createCell(0).setCellValue(compi.listaSem2.get(j).regla);
+                fila.createCell(1).setCellValue(compi.listaSem2.get(j).topePila); 
+                fila.createCell(2).setCellValue(compi.listaSem2.get(j).valorReal);
+                fila.createCell(3).setCellValue(compi.listaSem2.get(j).linea);
+                fila.createCell(4).setCellValue(compi.listaSem2.get(j).estado);
+                fila.createCell(5).setCellValue(compi.listaSem2.get(j).ambito);
+            }
+            
             try {
-                workbook.write(new FileOutputStream(new File("C:\\Users\\Computer\\Desktop\\Resultados en Excel compi\\JocelinePerez_Resultados.xlsx")));
-                Desktop.getDesktop().open(new File("C:\\Users\\Computer\\Desktop\\Resultados en Excel compi\\JocelinePerez_Resultados.xlsx"));
+                workbook.write(new FileOutputStream(new File("C:\\Users\\Computer\\Desktop\\Resultados en Excel compi\\Joceline Perez Gonzalez 15130226.xlsx")));
+                Desktop.getDesktop().open(new File("C:\\Users\\Computer\\Desktop\\Resultados en Excel compi\\Joceline Perez Gonzalez 15130226.xlsx"));
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Lexico.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1584,6 +1638,12 @@ public class Lexico extends javax.swing.JFrame {
         }
         // </editor-fold>
     }//GEN-LAST:event_Generar1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        VistaSem2 vs2 = new VistaSem2(this,false);
+        vs2.llenarTabla(compi.listaSem2);
+        vs2.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1628,6 +1688,7 @@ public class Lexico extends javax.swing.JFrame {
     private javax.swing.JButton btn_tablaSemantica1;
     private javax.swing.JButton btnanalizar;
     private javax.swing.JButton btnsubir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -22,6 +22,7 @@ public class TablaSimbolos {
 
     static String MeterDatos = "INSERT into tablasimbolos (id,tipo,clase,ambito,tarr,ambCreado,valor,noPosicion,llave,listaPertenece,rango,avance) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
     static String updateFuncion = "UPDATE tablasimbolos set tarr = ? WHERE id = ? and ambito = ?";
+    static String updateFuncType = "UPDATE tablasimbolos set tipo = ?, clase = ?  WHERE id = ? and ambito = ?";
     static String updateConjunDicc = "UPDATE tablasimbolos set tipo = ?, clase = ?, tarr = ?  WHERE id = ? and ambito = ?";
     static String buscarID = "SELECT * FROM tablasimbolos WHERE id = ? and ambito = ?";
     static String contarTipos = "select count(*) from tablasimbolos where tipo= ? and ambito = ?";
@@ -31,6 +32,7 @@ public class TablaSimbolos {
     static String contarClasesTodos = "select count(*) from tablasimbolos where clase= ?";
     static String getTipo = "SELECT tipo from tablasimbolos where id = ? and ambito = ?";
     static String getClase = "SELECT clase from tablasimbolos where id = ? and ambito = ?";
+    static String getTarr = "SELECT tarr from tablasimbolos where id = ? and ambito = ?";
 
     public static void registrarFuncion(String id, String amb, String AmbitoCreado) {
         try {
@@ -54,6 +56,29 @@ public class TablaSimbolos {
             Logger.getLogger(TablaSimbolos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static void registrarProcedimiento(String id, String amb, String AmbitoCreado) {
+        try {
+            PreparedStatement ps = SQL.getPreparedStatement(MeterDatos);
+            ps.setString(1, id); //id
+            ps.setString(2, "None");//tipo
+            ps.setString(3, "Procedimiento"); //clase
+            ps.setString(4, amb); //Ambito
+            ps.setString(5, ""); // tarr
+            ps.setString(6, AmbitoCreado); //ambCreado
+            ps.setString(7, ""); // valor
+            ps.setString(8, ""); //noPosicion
+            ps.setString(9, ""); //llave
+            ps.setString(10, ""); //listaPertenece
+            ps.setString(11, ""); //rango
+            ps.setString(12, ""); //avance
+            ps.executeUpdate();
+            ps.close();
+            SQL.conexion().close();
+        } catch (SQLException ex) {
+            Logger.getLogger(TablaSimbolos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public static void actualizarFuncion(String id, String amb, String tarr) {
         try {
@@ -61,6 +86,21 @@ public class TablaSimbolos {
             ps.setString(1, tarr);
             ps.setString(2, id);
             ps.setString(3, amb);
+            ps.executeUpdate();
+            ps.close();
+            SQL.conexion().close();
+        } catch (SQLException ex) {
+            Logger.getLogger(TablaSimbolos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void actualizarFuncTipoClase(String id, String amb, String tipo){
+        try {
+            PreparedStatement ps = SQL.getPreparedStatement(updateFuncType);
+            ps.setString(1, tipo);
+            ps.setString(2, "Funcion");
+            ps.setString(3, id);
+            ps.setString(4, amb);
             ps.executeUpdate();
             ps.close();
             SQL.conexion().close();
@@ -269,20 +309,20 @@ public class TablaSimbolos {
         }
     }
 
-    public static void registrarArr(String id, String amb) {
+    public static void registrarArr(String id, String amb, String tarr, String rango) {
         try {
             PreparedStatement ps = SQL.getPreparedStatement(MeterDatos);
             ps.setString(1, id); //id
             ps.setString(2, "Struct");//tipo
             ps.setString(3, "Arreglo"); //clase
             ps.setString(4, amb); //Ambito
-            ps.setString(5, ""); // tarr
+            ps.setString(5, tarr); // tarr
             ps.setString(6, ""); //ambCreado
             ps.setString(7, ""); // valor
             ps.setString(8, ""); //noPosicion
             ps.setString(9, ""); //llave
             ps.setString(10, ""); //listaPertenece
-            ps.setString(11, ""); //rango
+            ps.setString(11, rango); //rango
             ps.setString(12, ""); //avance
             ps.executeUpdate();
             ps.close();
@@ -452,5 +492,23 @@ public class TablaSimbolos {
         return tipo;
     }
     
+    public static int ObtenerNumParametros(String id, String ambito){
+        int num = -1;
+        try {
+            PreparedStatement ps = SQL.getPreparedStatement(getTarr);
+            ps.setString(1, id);
+            ps.setString(2, ambito);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                num = rs.getInt(1);
+            }
+            rs.close();
+            ps.close();
+            SQL.conexion().close();
+        } catch (SQLException ex) {
+            Logger.getLogger(TablaSimbolos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return num;
+    }
     
 }

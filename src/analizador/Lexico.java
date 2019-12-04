@@ -449,10 +449,13 @@ public class Lexico extends javax.swing.JFrame {
     setAutoRequestFocus(false);
     setBackground(new java.awt.Color(0, 0, 153));
     setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-    setMinimumSize(new java.awt.Dimension(1290, 720));
+    setMinimumSize(new java.awt.Dimension(1290, 520));
+    setPreferredSize(new java.awt.Dimension(1290, 500));
     getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
     jPanel1.setBackground(new java.awt.Color(59, 196, 245));
+    jPanel1.setMinimumSize(new java.awt.Dimension(1309, 480));
+    jPanel1.setPreferredSize(new java.awt.Dimension(1309, 480));
     jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
     jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1309, 340, -1, 329));
 
@@ -946,7 +949,7 @@ public class Lexico extends javax.swing.JFrame {
     jLabel27.setText("ERRORES");
     jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 560, 90, -1));
 
-    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 800));
+    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 800));
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
